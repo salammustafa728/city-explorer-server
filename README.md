@@ -7,10 +7,12 @@
 
 ## Overview
 
-This Website made to display a city, the user input the city name and the city name and its coordinates and the map for
+This Website made for backend for the city-explorer website which is a website to display a city, the user input the city name and the city name and its coordinates and the map for
 this city, it had an error handle component to handle the error
 
 ## Getting Started
+
+Getting start with city-explorer project
 
 The user should enter the city name
 The user should press submit and the information and the map will apears
@@ -19,7 +21,7 @@ The user should press submit and the information and the map will apears
 
 ## Architecture
 
-I uesd the axios and bootstrap labraries to render the element and I uesd React with JavaScript to write the code
+I uesd the axios and bootstrap labraries and to render the element and I uesd React with JavaScript to write the code, express framework
 
 ## Change Log
 
@@ -34,3 +36,14 @@ The most website that were helpfull for me
 [The axios website](https://www.npmjs.com/package/axios)
 
 [LocatioIQ](https://locationiq.com/docs)
+
+
+Name of feature: Display the Weather description
+
+Estimate of time needed to complete: 3h
+
+Start time: 4 pm
+
+Finish time: .
+
+Actual time needed to complete: 6 h
