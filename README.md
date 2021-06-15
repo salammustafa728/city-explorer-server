@@ -47,3 +47,16 @@ Start time: 4 pm
 Finish time: .
 
 Actual time needed to complete: 6 h
+
+
+
+Name of feature: Display the weather and the date discrption for the city by get the data from weatherBit 
+
+
+Estimate of time needed to complete: 3 h
+
+Start time: 2 pm
+
+Finish time: 5 pm
+
+Actual time needed to complete: 3 h
