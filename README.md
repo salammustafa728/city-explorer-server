@@ -60,3 +60,13 @@ Start time: 2 pm
 Finish time: 5 pm
 
 Actual time needed to complete: 3 h
+
+Name of feature: Refactor all the modeles and the controllers
+
+Estimate of time needed to complete: 2 h
+
+Start time: 6 pm
+
+Finish time: 7 pm
+
+Actual time needed to complete: 1 h
