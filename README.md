@@ -72,12 +72,12 @@ Finish time: 7 pm
 Actual time needed to complete: 1 h
 
 
-Name of feature: Make Cache to st
+Name of feature: Make Cache to store the data fro the weather and the movie
 
-Estimate of time needed to complete: _____
+Estimate of time needed to complete: 1 h
 
-Start time: _____
+Start time: 3 pm
 
-Finish time: _____
+Finish time: 4 pm
 
-Actual time needed to complete: _____
+Actual time needed to complete: 1 h
