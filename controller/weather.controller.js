@@ -10,6 +10,7 @@ const cacheObj = new Cache();
 const weatherController = (req,res)=>{
     const lat = req.query.lat;
     const lon = req.query.lon;
+   
     const requestKey = `weather-${lat}-${lon}`
       console.log('requestKey' , requestKey);
    if(lat && lon){

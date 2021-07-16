@@ -2,12 +2,14 @@ require('dotenv').config();
 const express = require('express') // require the express package
 const cors = require('cors');
 
-const { response } = require('express');
+// const { response } = require('express');
 const app = express() // initialize your express app instance
+app.use(cors()) 
+app.use(express.json());
 const weatherController = require('./controller/weather.controller');
 const movieController = require('./controller/movie.controller');
 const indexController= require('./controller/indes.controller')
-app.use(cors()) // after you initialize your express app instance
+// after you initialize your express app instance
 // a server endpoint 
 
 const PORT=process.env.PORT;

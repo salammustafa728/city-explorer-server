@@ -7,9 +7,10 @@ const cacheObj = new Cache();
 const Movies=require('../models/movie.model');
 const MOVIE_API_KEY=process.env.MOVIE_API_KEY;
 
-async function displayMovie (req,res){
+const displayMovie = (req,res)=>{
     let city=req.query.query;
-    const requestKey = `movies-${city}`
+    console.log('city',city);
+    const requestKey = `movies-${city}`;
 
     if (city) {
       if (cacheObj[requestKey] && Date.now() - cacheObj[requestKey].timeStamp < 86400000) {
@@ -32,9 +33,9 @@ async function displayMovie (req,res){
               });
       }
   } 
-  // else {
-  //     res.send("please provide the City name");
-  // }
+  else {
+      res.send("please provide the City name");
+  }
     }
    
     
