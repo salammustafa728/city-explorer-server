@@ -1,42 +1,44 @@
 require('dotenv').config();
 const axios=require('axios');
 // const movieData = require('./data/movie.json');
-const Movie=require('../models/movie.model');
-const MOVIE_API_KEY=process.env.MOVIE_API_KEY;
 const Cache = require('../helper/Cache')
-
 const cacheObj = new Cache();
 
+const Movies=require('../models/movie.model');
+const MOVIE_API_KEY=process.env.MOVIE_API_KEY;
 
 async function displayMovie (req,res){
-    let searchQuery=req.query.query;
-    const requestKey = `movies-${searchQuery}`
+    let city=req.query.query;
+    const requestKey = `movies-${city}`
 
-    if(cacheObj[requestKey] && (Date.now()-cacheObj[requestKey]<86400000)){
-      console.log('=====================');
-      console.log('from the cache object');
-      console.log('=====================');
-      res.json(cacheObj[requestKey].data)
-    }else{
-      const movieUrl=`https://api.themoviedb.org/3/search/movie?api_key=${MOVIE_API_KEY}&query=${searchQuery}`
-      const movieDD=await axios.get(movieUrl);
-      const movieData= movieDD.data.results.map(movie=>{
-        return new Movie(movie);})
-      console.log('================================');
-      console.log('from the cache axios request');
-      console.log('================================');
-      console.log('================================');
-      console.log('storing the data from the cache');
-      console.log('================================');
-     
-        cacheObj[requestKey]={data:movieData}
-        cacheObj[requestKey].timestamp = Date.now()
-      res.status(200).send(movieData) 
-      
+    if (city) {
+      if (cacheObj[requestKey] && Date.now() - cacheObj[requestKey].timeStamp < 86400000) {
+          res.json(cacheObj[requestKey].data);
+          console.log(cacheObj[requestKey].data,'cacheObj[requestKey].data');
+      } else {
+          const moviesUrl = `https://api.themoviedb.org/3/search/movie?api_key=${MOVIE_API_KEY}&query=${city}`;
+          axios
+              .get(moviesUrl)
+              .then((axiosResponse) => {
+                  const arrayOfMovies = axiosResponse.data.results.map((movie) => new Movies(movie));
+                  cacheObj[requestKey] = {};
+                  cacheObj[requestKey].data = arrayOfMovies;
+                  cacheObj[requestKey].timeStamp = Date.now();
+                  res.json(arrayOfMovies);
+                  console.log(arrayOfMovies);
+              })
+              .catch((error) => {
+                  res.send(error.message);
+              });
+      }
+  } 
+  // else {
+  //     res.send("please provide the City name");
+  // }
     }
    
     
-    }
+    
 
 
 module.exports = displayMovie;    
